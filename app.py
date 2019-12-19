@@ -345,6 +345,7 @@ clustCustomerStates = pickle.load(open('clustCustomerStates.pkl','rb'))
 topN_Names = []
 topN_custName = []
 topN_custCity = []
+topN_custNames = []
 customerCode = ""
 geoSpecific = ""
 
@@ -406,7 +407,8 @@ def generateMultiGraph():
 def generateTopN():
     nVal = int(request.form['nValue'])
     global topN_Names
-    global topN_custName
+    global topN_custNames
+    global topN_custCity
     return jsonify({'data': render_template("rankCards.html", nVal = nVal,topN = zip(np.flip(topN_Names[-1*nVal:]),np.flip(topN_custNames[-1*nVal:]),np.flip(topN_custCity[-1*nVal:]) ))})
 
 @app.route('/visualize/customerWise', methods=['POST'])
