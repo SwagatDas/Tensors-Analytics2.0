@@ -29,7 +29,7 @@ clustCustomerStates = pickle.load(open('clustCustomerStates.pkl','rb'))
 # stateList=list(givenData['State'].unique())
 # reviewZoneList=list(givenData['Review Zone'].unique())
 # reTerritoryList=list(givenData['Re Territory'].unique())
-# Random Push to Deploy
+
 # #Final Function for hosting
 
 # def geoFunction(geo, productFeature):
