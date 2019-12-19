@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>OBL Tiles Analytics</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href='/static/css/materialize.css' type='text/css' rel='stylesheet'>
+  <link href='/static/css/custom.css' type='text/css' rel='stylesheet'>
+
+
+</head>
+
+<body>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="../../" class="brand-logo">Tensors - Deep Analytics Wizard</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="../../analytics">CUSTOMER PREDICTION</a></li>
+          <!-- <li><a href="#">VISUAL ANALYTICS</a></li> -->
+          <li><a href="../../cluster">CLUSTER ANALYTICS</a></li>
+        </ul>
+      </div>
+    </nav>
+
+   <div class="predictionBody">
+
+    <div class="row">
+      
+      <h4 class="col offset-l4 offset-m4 l6 m6 s12"> TOP-N CUSTOMER PREDICTION </h3> 
+      <!-- <div class="switch col offset-l3 offset-m3 l6 m6 s12" style="padding-top:3%; padding-bottom: 3%">
+        <label>
+          <b>SINGLE PREDICTION MODE</b>
+          <input type="checkbox">
+          <span class="lever"></span>
+          <b>MULTIPLE PREDICTION MODE</b>
+        </label>
+      </div> -->
+
+    </div>
+
+    <div class="row">
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+
+
+        <div class="input-field col l3 m4 s12">
+          <select name="Item Cat. Code" id="Item Cat. Code">
+            <option value="" disabled selected>ERP Size</option>
+            <option value="D001">D001</option>
+            <option value="T001">T001</option>
+            <option value="M001">M001</option>
+            <option value="H001">H001</option>
+            <option value="SAMPLE">SAMPLE</option>
+          </select>
+          <label>Select Item Cat. Code</label>
+        </div>
+
+        <div class='input-field col l3 m4 s12'>
+          <input type="text" id="TotalADSqmt" name="TotalADSqmt" placeholder="Total AD/Sq. Mt." required="required" />
+          <label for="sqmt">Total AD/Sq Mt</label>
+        </div> 
+
+        <div class='input-field col l3 m4 s12'>
+          <input type="text" id="billingRateSqmt" name="billingRateSqmt" placeholder="Billing Rate/Sqm" required="required" />
+          <label for="sqmt">Billing Rate/Sqm</label>
+        </div>
+
+        <div class="input-field col l3 m4 s12">
+          <select name="Tableau Product Code" id="Tableau Product Code">
+            <option value="" disabled selected>Tableau Product Code</option>
+            <option value="Ceramic">Ceramic</option>
+            <option value="PGVT">PGVT</option>
+            <option value="DC">DC</option>
+            <option value="GVT">GVT</option>
+          </select>
+          <label>Select Tableau Product Code</label>
+        </div>
+
+        <div class='input-field col l3 m4 s12'>
+          <input type="text" id="Pcs per Box" name="pcsPerBox" placeholder="Pcs/Box" required="required" />
+          <label for="ppbox">Pcs/Box</label>
+        </div>
+
+
+
+
+        <div class="input-field col l3 m4 s12">
+          <select name="erpSize" id="erpSize">
+            <option value="" disabled selected>ERP Size</option>
+            <option value="395X395">395X395</option>
+            <option value="300X300">300X300</option>
+            <option value="600X600">600X600</option>
+            <option value="300X450">300X450</option>
+            <option value="200X300">200X300</option>
+            <option value="400X400">400X400</option>
+            <option value="250X375">250X375</option>
+            <option value="224X448">224X448</option>
+            <option value="605X605">605X605</option>
+            <option value="800X800">800X800</option>
+            <option value="600X1200">600X1200</option>
+            <option value="800X1200">800X1200</option>
+            <option value="148X600">148X600</option>
+            <option value="200X1200">200X1200</option>
+            <option value="300X900">300X900</option>
+            <option value="245X325">245X325</option>
+            <option value="200X200">200X200</option>
+            <option value="495X495">495X495</option>
+            <option value="295X445">295X445</option>
+            <option value="300X400">300X400</option>
+            <option value="295X395">295X395</option>
+            <option value="195X1200">195X1200</option>
+            <option value="100X300">100X300</option>
+            <option value="100X295">100X295</option>
+            <option value="397X397">397X397</option>
+            <option value="298X298">298X298</option>
+            <option value="297X297">297X297</option>
+            <option value="295X595">295X595</option>
+            <option value="148X148">148X148</option>
+            <option value="396X396">396X396</option>
+            <option value="050X200">050X200</option>
+            <option value="050X295">050X295</option>
+            <option value="065X200">065X200</option>
+            <option value="065X295">065X295</option>
+            <option value="075X200">075X200</option>
+            <option value="075X395">075X395</option>
+            <option value="100X400">100X400</option>
+            <option value="200X400">200X400</option>
+            <option value="096X295">096X295</option>
+            <option value="100X200">100X200</option>
+            <option value="197X600">197X600</option>
+            <option value="295X295">295X295</option>
+            <option value="1000X1000">1000X1000</option>
+            <option value="600x600">600x600</option>
+            <option value="250x375">250x375</option>
+            <option value="200x300">200x300</option>
+            <option value="300x300">300x300</option>
+            <option value="300x450">300x450</option>
+            <option value="800X1600">800X1600</option>
+            <option value="1200X2400">1200X2400</option>
+            <option value="1200X1200">1200X1200</option>
+            <option value="400X600">400X600</option>
+            <option value="300x600">300x600</option>
+          </select>
+          <label>Select ERP Size</label>
+        </div> 
+      
+    <div class="row">
+        <div class= "col offset-l5 offset-m5 offset-s2 l4 m4 s8">
+          <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </div>
+
+    </div>
+
+    </form>
+     
+     {{ debug }}
+
+  </div>
+
+</div>
+
+  <script type="text/javascript" src="/static/js/materialize.js"></script>
+
+  <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+
+  </script>  
+
+
+
+</body>
+</html>

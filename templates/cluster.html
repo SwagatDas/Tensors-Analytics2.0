@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>OBL Tiles Analytics</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href='/static/css/materialize.css' type='text/css' rel='stylesheet'>
+  <link href='/static/css/custom.css' type='text/css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="../../" class="brand-logo">Tensors - Deep Analytics Wizard</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="../../analytics">CUSTOMER PREDICTION</a></li>
+          <li><a href="#">VISUAL ANALYTICS</a></li>
+          <li><a href="../../cluster">CLUSTER ANALYTICS</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row">
+    	<div class="col offset-m3 offset-l3 m8 l8 s12">
+    		<h3>Clusters based on Buying Pattern</h3>
+    	</div>
+    </div>
+
+    <div class="row">
+	  <ul class="collapsible popout">
+	    
+	  	{% for j,k,l,m in data: %}
+	  	   	{% set list1 = j.split(';') %}  	
+	       <!-- <tr>
+	          <td></td>
+	          <td>{{j}}</td>
+	          <td>{{k}}</td>
+	          <td>{{l}}</td>
+	       </tr> -->
+		       <li>
+			      <div class="collapsible-header"><i class="large material-icons">people</i>
+			      	<div class="col offset-m2 offset-l2 m8 l8 s12">
+			      		<table class="highlight">
+					        <thead>
+					          <tr>
+					              <th>Feature</th>
+					              <th>Preference</th>
+					          </tr>
+					        </thead>
+
+					        <tbody>
+				                <tr>
+				                    <td>Tile Type</td>
+				                    <td><b>{{ list1[0] }}</b></td>
+				                </tr>
+				                <tr>
+				                    <td>ERP Size</td>
+				                    <td><b>{{ list1[1] }}</b></td>
+				                </tr>
+				                <tr>
+				                    <td>Item Code</td>
+				                    <td><b>{{ list1[2] }}</b></td>
+				                </tr>
+				                <tr>
+				                    <td>Pieces/Box</td>
+				                    <td><b>{{ list1[3] }}</b></td>
+				                </tr>
+				                <tr>
+				                    <td>Discount/Sqm</td>
+				                    <td><b>{{ list1[4] }}</b></td>
+				                </tr>
+				                <tr>
+				                    <td>Price/Sqm</td>
+				                    <td><b>{{ list1[5] }}</b></td>
+				                </tr>
+
+
+
+					        </tbody>
+					    </table>
+				    </div>
+			      </div>
+			      <div class="collapsible-body col m12 l12 s12">
+			      	<div class="col offset-l2 offset-m2 m8 l8 s12">
+				      	<table class="highlight">
+				      		<thead>
+				      			<tr>
+				      				<th>Customer Code</th>
+				      				<th>Customer Name and City</th>
+				      				<th>Customer State</th>
+				      			</tr>
+				      		</thead>
+				      		<tbody>
+						      	{% for name,state,code in k|zip(l,m): %}
+						      		<tr>
+						      			<td>{{code}}</td>
+						      			<td>{{name}}</td>
+						      			<td>{{state}}</td>
+						      		</tr>
+						      	{%endfor%}
+						    </tbody>
+						</table>
+		      	  </div> 
+		    	</li> 
+	    {%endfor%}
+
+	  </ul>
+	</div>
+
+
+
+
+
+    
+   
+  <script type="text/javascript" src="/static/js/materialize.js"></script>
+  <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems2 = document.querySelectorAll('.collapsible');
+        var instances2 = M.Collapsible.init(elems2);
+    });
+  </script>  
+
+
+
+</body>
+</html>
+
+
+
+
