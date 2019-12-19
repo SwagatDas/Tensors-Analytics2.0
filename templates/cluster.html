@@ -24,7 +24,7 @@
         <a href="../../" class="brand-logo">Tensors - Deep Analytics Wizard</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="../../analytics">CUSTOMER PREDICTION</a></li>
-<!--           <li><a href="#">VISUAL ANALYTICS</a></li> -->
+          <li><a href="#">VISUAL ANALYTICS</a></li>
           <li><a href="../../cluster">CLUSTER ANALYTICS</a></li>
         </ul>
       </div>
@@ -83,8 +83,10 @@
 				                    <td>Price/Sqm</td>
 				                    <td><b>{{ list1[5] }}</b></td>
 				                </tr>
-
-
+				                <tr>
+				                    <td><b>Total Number of Customers</b></td>
+				                    <td><b>{{ list1[6] }}</b></td>
+				                </tr>
 
 					        </tbody>
 					    </table>
@@ -95,6 +97,7 @@
 				      	<table class="highlight">
 				      		<thead>
 				      			<tr>
+				      				<th>Sl. No.</th>
 				      				<th>Customer Code</th>
 				      				<th>Customer Name and City</th>
 				      				<th>Customer State</th>
@@ -103,6 +106,7 @@
 				      		<tbody>
 						      	{% for name,state,code in k|zip(l,m): %}
 						      		<tr>
+						      			<td>{{loop.index0 + 1}}
 						      			<td>{{code}}</td>
 						      			<td>{{name}}</td>
 						      			<td>{{state}}</td>
