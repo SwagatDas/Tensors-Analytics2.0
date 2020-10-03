@@ -1,7 +1,7 @@
 # Tensors-Analytics2.0
 
 This project was a part of the work done in a Hackathon conducted by Orient Bell Tiles.
-This was a team project done collaboratively with - [Swagat](https://www.quora.com) and [Supriya](https://github.com/supr1ya)
+This was a team project done collaboratively with - [Sandeep Pattanayak](https://github.com/PSandeepSandy) and [Supriya](https://github.com/supr1ya)
 
 
 This is the interactive portal designed for real world problems which corporates face like -
